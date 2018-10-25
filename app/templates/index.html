@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Home - {{ super() }} {% endblock %}
+
+{% block app_content %}
+  <div class="container">
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.usernum.label }}<br>
+            {{ form.usernum(size=10) }}<br>
+            {% for error in form.usernum.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.usercity.label }}<br>
+            {{ form.usercity(size=25) }}<br>
+            {% for error in form.usercity.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+  <!-- <div>
+    <p>City Name: {{ name }} </p>
+    <p>High: {{ high }}&deg;F</p>
+    <p>Low: {{ low }}&deg;F</p>
+    <p>Current: {{ current }}&deg;F</p>
+    <p>Condition: {{ condition }} </p>
+  </div> -->
+  </div>
+{% endblock %}
